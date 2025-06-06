@@ -13,12 +13,20 @@ const isAuthenticated = async (req, res, next) => {
 
     const decode = jwt.verify(token, process.env.SECRET_KEY);
 
-    req.id = decode.user;
+    req.id = decode.user || decode.id; // ✅ Handles either structure
+
+    if (!req.id) {
+      return res.status(401).json({
+        message: "Invalid token payload",
+        success: false,
+      });
+    }
+
     next();
   } catch (error) {
-    console.log(error);
-    return res.status(500).json({
-      message: "Internal Server Error",
+    console.log("JWT error:", error);
+    return res.status(401).json({
+      message: "Invalid or expired token",
       success: false,
     });
   }
