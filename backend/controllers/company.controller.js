@@ -1,11 +1,11 @@
 import { Company } from "../models/company.model.js";
 
-// Register a new company
+
 export const registerCompany = async (req, res) => {
   try {
     const { companyName, description } = req.body;
 
-    // Validate input
+   
     if (!companyName || !description) {
       return res.status(400).json({
         message: "Company name and description are required",
@@ -13,7 +13,7 @@ export const registerCompany = async (req, res) => {
       });
     }
 
-    // Check if the company already exists
+
     const existingCompany = await Company.findOne({ name: companyName });
     if (existingCompany) {
       return res.status(400).json({
@@ -22,7 +22,7 @@ export const registerCompany = async (req, res) => {
       });
     }
 
-    // Create new company
+  
     const company = await Company.create({
       name: companyName,
       description,
@@ -44,7 +44,7 @@ export const registerCompany = async (req, res) => {
   }
 };
 
-// Get all companies for a user
+
 export const getCompany = async (req, res) => {
   try {
     const userId = req.id;
@@ -102,7 +102,7 @@ export const getCompanyById = async (req, res) => {
   }
 };
 
-// Update a company
+
 export const updateCompany = async (req, res) => {
   try {
     const { name, description, website, location } = req.body;
