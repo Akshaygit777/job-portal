@@ -73,7 +73,6 @@ try{
 
 }
 }
-//admin will check how many users have applied.
 export const getApplicants=async (req,res) =>{
     try{
         const jobId=req.params.id;
