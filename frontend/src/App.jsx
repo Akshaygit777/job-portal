@@ -1,11 +1,12 @@
 import './App.css';
+import Navbar from './components/shared/Navbar';
 
 function App() {
   return ( <>
-  <h1 className="text-blue-500">Lets get started with frontend</h1>
+  <Navbar/>
   </>
    
-  );
+  )
 }
 
 export default App;
