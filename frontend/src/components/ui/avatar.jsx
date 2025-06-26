@@ -14,7 +14,7 @@ Avatar.displayName = AvatarPrimitive.Root.displayName
 const AvatarImage = React.forwardRef(({ className, ...props }, ref) => (
   <AvatarPrimitive.Image
     ref={ref}
-    className={cn("h-full w-full object-cover", className)} // Ensures image is not stretched
+    className={cn("h-full w-full object-cover", className)} 
     {...props}
   />
 ))
