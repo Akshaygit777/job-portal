@@ -6,6 +6,7 @@ import './App.css';
 import Navbar from './components/shared/Navbar';
 import  Home  from './components/Home';
 import { Component } from 'lucide-react';
+import Jobs from './components/Jobs';
 const appRouter = createBrowserRouter([
   {
     path:'/',
@@ -18,6 +19,10 @@ const appRouter = createBrowserRouter([
   {
   path:'/signup',
   element:<Signup/>
+  },
+  {
+    path:"/jobs",
+    element:<Jobs/>
   }
 
 ])
