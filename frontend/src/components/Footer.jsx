@@ -1,4 +1,5 @@
 import React from "react";
+import { FaGithub, FaInstagram, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -9,42 +10,30 @@ const Footer = () => {
           <p className="text-sm text-gray-500 mt-1">Your gateway to dream jobs!</p>
         </div>
 
-        <div className="flex space-x-6">
+        <div className="flex space-x-6 text-gray-800">
           <a
-            href="https://leetcode.com"
+            href="https://twitter.com"
             target="_blank"
             rel="noreferrer"
-            className="hover:opacity-80"
+            className="hover:text-purple-500 transition-colors"
           >
-            <img
-              src="https://cdn.simpleicons.org/leetcode/000000"
-              alt="LeetCode"
-              className="h-6 w-6"
-            />
+            <FaTwitter className="h-6 w-6" />
           </a>
           <a
             href="https://github.com"
             target="_blank"
             rel="noreferrer"
-            className="hover:opacity-80"
+            className="hover:text-purple-500 transition-colors"
           >
-            <img
-              src="https://cdn.simpleicons.org/github/000000"
-              alt="GitHub"
-              className="h-6 w-6"
-            />
+            <FaGithub className="h-6 w-6" />
           </a>
           <a
             href="https://www.instagram.com"
             target="_blank"
             rel="noreferrer"
-            className="hover:opacity-80"
+            className="hover:text-purple-500 transition-colors"
           >
-            <img
-              src="https://cdn.simpleicons.org/instagram/000000"
-              alt="Instagram"
-              className="h-6 w-6"
-            />
+            <FaInstagram className="h-6 w-6" />
           </a>
         </div>
 
@@ -56,7 +45,8 @@ const Footer = () => {
       <div className="max-w-6xl mx-auto px-4 mt-4">
         <div className="flex justify-end">
           <span className="text-xs text-gray-400">
-            Built  by <span className="font-semibold text-gray-600">Akshaygit777</span>
+            Built by{" "}
+            <span className="font-semibold text-gray-600">Akshaygit777</span>
           </span>
         </div>
       </div>
@@ -65,4 +55,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
