@@ -9,8 +9,9 @@ import axios from "axios";
 import { USER_API_END_POINT } from "@/utils/constant";
 import { toast } from "sonner";
 import { useDispatch, useSelector } from "react-redux";
-import { setLoading } from "@/redux/authSlice";
+import { setLoading, setUser } from "@/redux/authSlice";
 import { Loader2 } from "lucide-react";
+
 
 const Login = () => {
   const [input, setInput] = useState({
@@ -43,8 +44,9 @@ const Login = () => {
       );
 
       if (res.data.success) {
-        toast.success(res.data.message);
+        dispatch(setUser(res.data.user));
         navigate("/");
+        toast.success(res.data.message);
       }
     } catch (error) {
       console.log(error);
@@ -90,7 +92,7 @@ const Login = () => {
           </div>
 
           <div className="my-4">
-            <Label className="block mb-1">Role</Label>
+            <Label className="block mb-1"></Label>
             <RadioGroup className="flex items-center gap-4">
               <div className="flex items-center space-x-2">
                 <Input
