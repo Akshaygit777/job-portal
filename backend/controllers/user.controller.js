@@ -104,8 +104,8 @@ export const login = async (req, res) => {
       })
       .json({
         message: `Welcome back ${user.fullname}`,
-        user,
         success: true,
+        user,
       });
   } catch (error) {
     console.log(error);
