@@ -3,7 +3,7 @@ import Navbar from './shared/Navbar';
 import Job from './Job';
 import { FaInstagram, FaGithub, FaTwitter } from 'react-icons/fa';
 
-const randomJobs = [1, 2, 3, 4, 5, 6, 7];
+const randomJobs = [1, 2, 3, 4, 5];
 
 const Explore = () => {
   return (

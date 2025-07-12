@@ -2,9 +2,12 @@ import React from 'react'
 import Navbar from './shared/Navbar'
 import {Avatar, AvatarImage } from './ui/avatar'
 import { Button } from './ui/button'
-import { Pen } from 'lucide-react'
-
+import {  Contact, Mail, Pen } from 'lucide-react'
+import { Badge } from './ui/badge';
+import { Label } from './ui/label'
+const skills =["HTML","CSS","Express.js","React.js"]
 const Profile = () => {
+  const isResume=true;
   return (
     <div>
         <Navbar/>
@@ -23,7 +26,32 @@ const Profile = () => {
           
          
             </div>
-            <Button className="text-right text-bold" variant="outline" > <Pen/> </Button>
+            <Button className="text-right hover:bg-gray-100" variant="outline" > <Pen/> </Button>
+            </div>
+            <div className='my-5'>
+              <div className='flex items-center gap-3 mt-3'>
+              <Mail/>
+              <span>Akshay@gmail.com</span>
+              </div>
+              <div className='flex items-center gap-3 my-2 '>
+              <Contact/>
+              <span>+91 XXXXXXXXXX</span>
+              </div>
+            </div>
+            <div>
+              <h1 className='font-bold '>Skills</h1>
+              <div className='flex items-center gap-1 '>
+              {
+                skills.length != 0 ? skills.map((item, index) => <Badge key={index}>{item}</Badge>) : <span>NA</span>
+              }
+              </div>
+            
+            </div>
+            <div className='grid w-full max-w-sm items-center gap-1.5 my-3'>
+              <Label className="text-md font-bold">Resume</Label>
+              {
+                isResume ? <a target= 'blank' href ='https://youtube.com' className='text-purple-300 w-full hover:underline cursor-pointer'>Akshay</a>: <span>NA</span>
+              }
             </div>
            
     </div>

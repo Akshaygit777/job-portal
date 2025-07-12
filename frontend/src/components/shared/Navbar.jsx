@@ -9,7 +9,7 @@ import store from "@/redux/store";
 
 
 const Navbar = () => {
-  const {user} = useSelector(store=>store.auth);
+const {user} = useSelector(store=>store.auth);
 
 
   return (
