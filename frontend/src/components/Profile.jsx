@@ -5,13 +5,14 @@ import { Button } from './ui/button'
 import {  Contact, Mail, Pen } from 'lucide-react'
 import { Badge } from './ui/badge';
 import { Label } from './ui/label'
+import AppliedJobTable from './AppliedJobTable'
 const skills =["HTML","CSS","Express.js","React.js"]
 const Profile = () => {
   const isResume=true;
   return (
     <div>
         <Navbar/>
-        <div className='m-w-7xl mx-auto bg-white border border-gray-200 rounded-2xl my-5 p-8'>
+        <div className='max-w-4xl mx-auto bg-white border border-gray-200 rounded-2xl my-5 p-8'>
             <div className='flex justify-between'>
             <div className='flex item-center gap-7'>
             <Avatar className=" h-24 w-24">
@@ -50,11 +51,20 @@ const Profile = () => {
             <div className='grid w-full max-w-sm items-center gap-1.5 my-3'>
               <Label className="text-md font-bold">Resume</Label>
               {
-                isResume ? <a target= 'blank' href ='https://youtube.com' className='text-purple-300 w-full hover:underline cursor-pointer'>Akshay</a>: <span>NA</span>
+                isResume ? <a target= 'blank' href ='https://youtube.com' className='text-purple-500 w-full hover:underline cursor-pointer'>Akshay</a>: <span>NA</span>
               }
             </div>
+        
+           
            
     </div>
+    <div className='max-w-4xl mx-auto bg-white rounded-2xl'>
+            <h1>Applied jobs</h1>
+              {        }
+              <AppliedJobTable/>
+                
+        </div>
+           
     </div>
   )
 }
