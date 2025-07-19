@@ -46,6 +46,10 @@ const JobDescription = () => {
     <h1 className="font-bold my-1">Total Applicant:<span className="pl-4 font-normal text-gray-800">4</span></h1>
     <h1 className="font-bold my-1">Posted Date:<span className="pl-4 font-normal text-gray-800">14-05-2025</span></h1>
 
+--+
+.
+
+
 
       </div>
     </div>

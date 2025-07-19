@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Job = () => {
     const navigate = useNavigate();
-    const jobId="jkjkwdlw";
+    const jobId = "jkjkwdlw";
 
   return (
     <div className='p-5 rounded-md shadow-xl bg-white border border-gray-100 '>
