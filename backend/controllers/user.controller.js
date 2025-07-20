@@ -36,7 +36,6 @@ export const register = async (req, res) => {
       success: true,
     });
   } catch (error) {
-    console.log(error);
     return res.status(500).json({
       message: "Server error",
       success: false,
@@ -108,7 +107,6 @@ export const login = async (req, res) => {
         user,
       });
   } catch (error) {
-    console.log(error);
     return res.status(500).json({
       message: "Server error",
       success: false,
@@ -118,15 +116,11 @@ export const login = async (req, res) => {
 
 export const logout = async (req, res) => {
   try {
-    return res
-      .status(200)
-      .cookie("token", "", { maxAge: 0 })
-      .json({
-        message: "Logged out successfully.",
-        success: true,
-      });
+    return res.status(200).cookie("token", "", { maxAge: 0 }).json({
+      message: "Logged out successfully.",
+      success: true,
+    });
   } catch (error) {
-    console.log(error);
     return res.status(500).json({
       message: "Server error",
       success: false,
@@ -136,12 +130,13 @@ export const logout = async (req, res) => {
 
 export const updateProfile = async (req, res) => {
   try {
-    const { fullname, email, phoneNumber, bio, skills } = req.body;
+    const body = req.body || {};
+    const { fullname, email, phoneNumber, bio, skills } = body;
     const file = req.file;
 
     let skillsArray;
     if (skills) {
-      skillsArray = Array.isArray(skills) ? skills : skills.split(",");
+      skillsArray = Array.isArray(skills) ? skills : skills.split(',').map(skill => skill.trim());
     }
 
     const userId = req.id;
@@ -158,10 +153,11 @@ export const updateProfile = async (req, res) => {
     if (phoneNumber) user.phoneNumber = phoneNumber;
     if (bio) user.profile.bio = bio;
     if (skills) user.profile.skills = skillsArray;
+    if (file) user.profile.resume = file.path;
 
     await user.save();
 
-    user = {
+    const updatedUser = {
       _id: user._id,
       fullname: user.fullname,
       email: user.email,
@@ -173,9 +169,9 @@ export const updateProfile = async (req, res) => {
     return res.status(200).json({
       message: "Profile updated successfully.",
       success: true,
+      user: updatedUser,
     });
   } catch (error) {
-    console.log(error);
     return res.status(500).json({
       message: "Server error",
       success: false,
