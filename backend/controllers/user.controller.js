@@ -130,13 +130,14 @@ export const logout = async (req, res) => {
 
 export const updateProfile = async (req, res) => {
   try {
-    const body = req.body || {};
-    const { fullname, email, phoneNumber, bio, skills } = body;
+    const { fullname, email, phoneNumber, bio, skills } = req.body;
     const file = req.file;
 
     let skillsArray;
     if (skills) {
-      skillsArray = Array.isArray(skills) ? skills : skills.split(',').map(skill => skill.trim());
+      skillsArray = Array.isArray(skills)
+        ? skills
+        : skills.split(",").map((skill) => skill.trim());
     }
 
     const userId = req.id;
@@ -153,7 +154,11 @@ export const updateProfile = async (req, res) => {
     if (phoneNumber) user.phoneNumber = phoneNumber;
     if (bio) user.profile.bio = bio;
     if (skills) user.profile.skills = skillsArray;
-    if (file) user.profile.resume = file.path;
+
+    if (file) {
+      user.profile.resume = file.buffer.toString("base64");
+      user.profile.resumeOriginalName = file.originalname;
+    }
 
     await user.save();
 
