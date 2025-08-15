@@ -7,10 +7,12 @@ import { Badge } from './ui/badge';
 import { Label } from './ui/label'
 import AppliedJobTable from './AppliedJobTable'
 import UpdateProfileDialog from './UpdateProfileDialog'
-const skills =["HTML","CSS","Express.js","React.js"]
+import { useSelector } from 'react-redux'
+// const skills =["HTML","CSS","Express.js","React.js"]
 const Profile = () => {
   const [open, setOpen]= useState(false);
-  const isResume=true;
+  const isResume= true;
+  const {user} = useSelector(store => store.auth);
   return (
     <div>
         <Navbar/>
@@ -22,8 +24,8 @@ const Profile = () => {
          
           </Avatar>
           <div>
-          <h1 className='font-medium text-xl '>Full Name</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum voluptatum aspernatur molestiae officiis quas?
+          <h1 className='font-medium text-xl '>{user?.fullname}</h1>
+          <p>{user?.profile?.bio}
           </p>
           </div>
           
@@ -34,18 +36,18 @@ const Profile = () => {
             <div className='my-5'>
               <div className='flex items-center gap-3 mt-3'>
               <Mail/>
-              <span>Akshay@gmail.com</span>
+              <span>{user?.email}</span>
               </div>
               <div className='flex items-center gap-3 my-2 '>
               <Contact/>
-              <span>+91 XXXXXXXXXX</span>
+              <span>{user?.phoneNumber}</span>
               </div>
             </div>
             <div>
               <h1 className='font-bold '>Skills</h1>
               <div className='flex items-center gap-1 '>
               {
-                skills.length != 0 ? skills.map((item, index) => <Badge  className=" text-white rounded-full bg-black"key={index}>{item}</Badge>) : <span>NA</span>
+                user?.profile?.skills.length != 0 ? user?.profile?.skills.map((item, index) => <Badge  className=" text-white rounded-full bg-black"key={index}>{item}</Badge>) : <span>NA</span>
               }
               </div>
             
@@ -53,7 +55,7 @@ const Profile = () => {
             <div className='grid w-full max-w-sm items-center gap-1.5 my-3'>
               <Label className="text-md font-bold">Resume</Label>
               {
-                isResume ? <a target= 'blank' href ='https://youtube.com' className='text-purple-500 w-full hover:underline cursor-pointer'>Akshay</a>: <span>NA</span>
+                isResume ? <a target= 'blank' href ={user?.profile?.resume} className='text-purple-500 w-full hover:underline cursor-pointer'>{user?.profile?.resumeOriginalName}</a>: <span>NA</span>
               }
             </div>
         

@@ -13,7 +13,7 @@ const isAuthenticated = async (req, res, next) => {
 
     const decode = jwt.verify(token, process.env.SECRET_KEY);
 
-    req.id = decode.user || decode.id; // ✅ Handles either structure
+    req.id = decode.userId; // ✅ matches the token structure from login
 
     if (!req.id) {
       return res.status(401).json({

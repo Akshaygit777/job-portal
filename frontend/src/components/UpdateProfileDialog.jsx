@@ -4,7 +4,7 @@ import { Dialog, DialogTitle, DialogContent, DialogHeader, DialogFooter } from '
 import { Input } from './ui/input';
 import { Button } from './ui/button';
 import { Loader2 } from 'lucide-react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'sonner';
 import axios from 'axios';
 import { USER_API_END_POINT } from '@/utils/constant';
@@ -19,8 +19,10 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
     phoneNumber: user?.phoneNumber || '',
     bio: user?.profile?.bio || '',
     skills: user?.profile?.skills?.join(', ') || '',
-    file: null, // Changed here: initialize file as null, not the resume string
+    file: user?.profile?.resume || null
   });
+
+  const dispatch = useDispatch();
 
   const changeEventHandler = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
@@ -47,12 +49,12 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
     try {
       const res = await axios.post(`${USER_API_END_POINT}/profile/update`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
-        withCredentials: true,
+        withCredentials: true
       });
 
       if (res.data.success) {
         toast.success(res.data.message);
-        setOpen(false); // Close dialog only on success
+        dispatch({ type: 'auth/loginSuccess', payload: res.data.user });
       } else {
         toast.error(res.data.message || 'Update failed');
       }
@@ -61,6 +63,7 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
     }
 
     setLoading(false);
+    setOpen(false);
   };
 
   return (
@@ -165,4 +168,3 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
 };
 
 export default UpdateProfileDialog;
-
