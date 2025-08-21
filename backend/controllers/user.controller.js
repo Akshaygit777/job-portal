@@ -15,9 +15,27 @@ export const register = async (req, res) => {
       });
     }
 
+    // ✅ Log uploaded file
+    console.log("Uploaded file:", req.file);
+
     const file = req.file;
+
+    if (!file) {
+      return res.status(400).json({
+        message: "No profile photo received.",
+        success: false,
+      });
+    }
+
     const fileUri = getDataUri(file);
+
+    // ✅ Log base64 content (first 100 characters)
+    console.log("File URI Content:", fileUri.content.substring(0, 100));
+
     const cloudResponse = await cloudinary.uploader.upload(fileUri.content);
+
+    // ✅ Log Cloudinary response
+    console.log("Cloudinary upload response:", cloudResponse);
 
     const existingUser = await User.findOne({ email });
     if (existingUser) {
@@ -50,6 +68,7 @@ export const register = async (req, res) => {
   }
 };
 
+// ✅ No changes below this point
 export const login = async (req, res) => {
   try {
     const { email, password, role } = req.body;
