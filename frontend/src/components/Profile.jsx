@@ -8,7 +8,6 @@ import { Label } from './ui/label'
 import AppliedJobTable from './AppliedJobTable'
 import UpdateProfileDialog from './UpdateProfileDialog'
 import { useSelector } from 'react-redux'
-// const skills =["HTML","CSS","Express.js","React.js"]
 const Profile = () => {
   const [open, setOpen]= useState(false);
   const isResume= true;

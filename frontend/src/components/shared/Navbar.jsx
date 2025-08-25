@@ -74,7 +74,7 @@ const Navbar = () => {
                                             </Avatar>
                                             <div>
                                                 <h4 className='font-medium'>{user?.fullname}</h4>
-                                                <p className='text-sm text-muted-foreground'>{user?.profile?.bio}</p>
+                                                <p className='text-sm text-gray-400'>{user?.profile?.bio}</p>
                                             </div>
                                         </div>
                                         <div className='flex flex-col my-2 text-gray-600'>
