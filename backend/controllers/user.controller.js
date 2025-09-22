@@ -68,7 +68,6 @@ export const register = async (req, res) => {
   }
 };
 
-// ✅ No changes below this point
 export const login = async (req, res) => {
   try {
     const { email, password, role } = req.body;
