@@ -79,7 +79,6 @@ export const getCompany = async (req, res) => {
   }
 };
 
-// Get company by ID
 export const getCompanyById = async (req, res) => {
   try {
     const companyId = req.params.id;
