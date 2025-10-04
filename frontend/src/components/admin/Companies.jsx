@@ -8,6 +8,7 @@ import useGetAllCompanies from "@/Hooks/useGetAllCompanies";
 
 const Companies = () => {
   useGetAllCompanies();
+  const [input,setInput] = useState("");
     const navigate= useNavigate();
   return (
     <div>
