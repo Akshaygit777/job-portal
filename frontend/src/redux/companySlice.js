@@ -3,8 +3,9 @@ import { createSlice } from "@reduxjs/toolkit";
 const companySlice = createSlice({
   name: "company",
   initialState: {
-    companies: [],        // initialize as empty array
+    companies: [],      
     singleCompany: null,
+    searchCompanyByText: "",
   },
   reducers: {
     setCompanies: (state, action) => {
@@ -13,8 +14,11 @@ const companySlice = createSlice({
     setSingleCompany: (state, action) => {
       state.singleCompany = action.payload;
     },
+    setSearchCompanyByText :(state,action) =>{
+      state.searchCompanyByText = action.payload;
+    }
   },
 });
 
-export const { setCompanies, setSingleCompany } = companySlice.actions;
+export const { setCompanies, setSingleCompany,setSearchCompanyByText } = companySlice.actions;
 export default companySlice.reducer;
