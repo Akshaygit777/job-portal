@@ -3,6 +3,8 @@ import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import Navbar from "../shared/Navbar";
 import { Description } from "@radix-ui/react-dialog";
+import { Button } from "../ui/button";
+const companyArray = [];
 
 const PostJob = () => {
     const [input,setInput] = useState({
@@ -17,6 +19,7 @@ const PostJob = () => {
         companyId:"",
 
     });
+    const {companies} = useSelector(store=>store.company);
     const changeEventHandler = (e)=>{
         setInput({...input,[e.target.name]:e.target.value});
     };
@@ -24,6 +27,10 @@ const PostJob = () => {
     <div>
       <Navbar />
       <div className="flex items-center justify-center w-screen my-5">
+        <form action="" className="p-8 max-w-4xl border border-gray-200 shadow-lg rounded-md">
+
+      
+        <div className="grid grid-cols-2 gap-2" >
         <div>
           <Label>Title</Label>
           <Input
@@ -35,25 +42,88 @@ const PostJob = () => {
           />
         </div>
         <div>
-          <Label>Title</Label>
+          <Label>Description</Label>
           <Input
             type="text"
-            name="title"
-            value={input.title}
+            name="description"
+            value={input.description}
             onChange={changeEventHandler}
             className="focus-visible:ring-offaset-0 focus-visible:ring-0 my-1"
           />
         </div>
         <div>
-          <Label>Title</Label>
+          <Label>Requirements</Label>
           <Input
             type="text"
-            name="title"
-            value={input.title}
+            name="requirments"
+            value={input.requirments}
             onChange={changeEventHandler}
             className="focus-visible:ring-offaset-0 focus-visible:ring-0 my-1"
           />
         </div>
+        <div>
+          <Label>Salary</Label>
+          <Input
+            type="text"
+            name="salary"
+            value={input.salary}
+            onChange={changeEventHandler}
+            className="focus-visible:ring-offaset-0 focus-visible:ring-0 my-1"
+          />
+        </div>
+         <div>
+          <Label>Location</Label>
+          <Input
+            type="text"
+            name="location"
+            value={input.location}
+            onChange={changeEventHandler}
+            className="focus-visible:ring-offaset-0 focus-visible:ring-0 my-1"
+          />
+        </div>
+        <div>
+          <Label>Job Type</Label>
+          <Input
+            type="text"
+            name="jobType"
+            value={input.jobType}
+            onChange={changeEventHandler}
+            className="focus-visible:ring-offaset-0 focus-visible:ring-0 my-1"
+          />
+        </div>
+        <div>
+          <Label>Experiance Level</Label>
+          <Input
+            type="text"
+            name="experiance"
+            value={input.experiance}
+            onChange={changeEventHandler}
+            className="focus-visible:ring-offaset-0 focus-visible:ring-0 my-1"
+          />
+        </div>
+        <div>
+          <Label>No of positions</Label>
+          <Input
+            type="number"
+            name="position"
+            value={input.position}
+            onChange={changeEventHandler}
+            className="focus-visible:ring-offaset-0 focus-visible:ring-0 my-1"
+          />
+        </div>
+        {
+companies.length <= 0 && (
+  
+)
+        }
+
+        </div>
+        <Button className="w-full mt-4 bg-black text-white">Post Job</Button>
+        {
+          companyArray.length === 0 && <p className="text-red-600 text-xs font-bold text-center my-3"> *Please Register a company first</p>
+        }
+    
+        </form>
         
       </div>
     </div>
