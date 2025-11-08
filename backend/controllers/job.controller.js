@@ -19,7 +19,7 @@ export const postJob = async (req, res) => {
       salary: Number(salary),
       location,
       jobType,
-      experienceLevel: experience,
+      experienceLevel: Number(experience),
       position,
       company: companyId,
       created_by: userId, 
@@ -105,6 +105,14 @@ export const getJobById = async (req, res) => {
 };
 
 export const getAdminJobs = async (req, res) => {
+
+
+
+
+
+
+
+  
   try {
     const adminId = req.id;
 
