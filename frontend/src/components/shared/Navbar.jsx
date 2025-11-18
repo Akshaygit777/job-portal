@@ -77,7 +77,7 @@ const Navbar = () => {
                                                 <p className='text-sm text-gray-400'>{user?.profile?.bio}</p>
                                             </div>
                                         </div>
-                                        <div className='flex flex-col my-2 text-gray-600'>
+                                        <div className='flex flex-col my-2 text-gray-600 bg-white'>
                                             {
                                                 user && user.role === 'student' && (
                                                     <div className='flex w-fit items-center gap-2 cursor-pointer'>
@@ -87,9 +87,9 @@ const Navbar = () => {
                                                 )
                                             }
 
-                                            <div className='flex w-fit items-center gap-2 cursor-pointer'>
+                                            <div className='flex w-fit items-center gap-2 cursor-pointer bg-white'>
                                                 <LogOut />
-                                                <Button onClick={logoutHandler} variant="link">Logout</Button>
+                                                <Button onClick={logoutHandler} variant="link" >Logout</Button>
                                             </div>
                                         </div>
                                     </div>
