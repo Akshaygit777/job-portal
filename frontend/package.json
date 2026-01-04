@@ -19,6 +19,8 @@
     "@radix-ui/react-slot": "^1.2.3",
     "@reduxjs/toolkit": "^2.8.2",
     "axios": "^1.10.0",
+    "baseline-browser-mapping": "^2.9.11",
+    "caniuse-lite": "^1.0.30001762",
     "class-variance-authority": "^0.7.1",
     "cloudinary": "^2.7.0",
     "clsx": "^2.1.1",
