@@ -11,7 +11,7 @@ import { MoreHorizontal } from "lucide-react";
 import { useSelector } from "react-redux"
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 import axios from "axios";
 import { toast } from "sonner";
 
