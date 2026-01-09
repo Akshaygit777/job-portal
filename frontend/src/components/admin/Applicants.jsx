@@ -10,7 +10,7 @@ import { setAllApplicants } from '@/redux/applicationSlice';
 const Applicants = () => {
     const params = useParams();
     const dispatch = useDispatch();
-    const {applicants} = useSelector(store=>store.application);
+    const applicants = useSelector(store => store.application?.applicants);
 
     useEffect(() => {
         const fetchAllApplicants = async () => {

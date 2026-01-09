@@ -14,6 +14,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist'
+import Applicants from "@/components/admin/Applicants";
 
 const persistConfig = {
   key: 'root',
@@ -24,7 +25,7 @@ const rootReducer = combineReducers({
   auth:authSlice,
   job:jobSlice,
  company:companySlice,
- applicantions:applicationSlice
+ application:applicationSlice
 
 
 })
