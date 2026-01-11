@@ -19,6 +19,8 @@ const shortlistingStatus = ["Accepted", "Rejected"];
         const applicants = useSelector(
           store => store.application?.applicants
         );
+
+
       
     
 
