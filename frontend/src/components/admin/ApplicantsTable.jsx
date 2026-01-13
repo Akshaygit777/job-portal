@@ -67,7 +67,7 @@ const shortlistingStatus = ["Accepted", "Rejected"];
                                 <TableCell className="float-right cursor-pointer">
                             <Popover>
                                 <PopoverTrigger><MoreHorizontal /></PopoverTrigger>
-                                <PopoverContent className="w-32">
+                                <PopoverContent className="w-32 bg-white">
                                     {
                                         shortlistingStatus.map((sts, idx) => {
                                             return (
