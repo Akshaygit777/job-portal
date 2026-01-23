@@ -2,10 +2,10 @@ import React, { useEffect } from 'react'
 import Navbar from './shared/Navbar'
 import Job from './Job';
 import { useDispatch, useSelector } from 'react-redux';
-import { setsearchedQuery } from '@/redux/jobSlice';
+import { setSearchedQuery } from '@/redux/jobSlice';
 import useGetAllJobs from '@/hooks/useGetAllJobs';
 
-
+// const randomJobs = [1, 2,45];
 
 const Explore = () => {
     useGetAllJobs();
@@ -13,7 +13,7 @@ const Explore = () => {
     const dispatch = useDispatch();
     useEffect(()=>{
         return ()=>{
-            dispatch(setsearchedQuery(""));
+            dispatch(setSearchedQuery(""));
         }
     },[])
     return (

@@ -2,17 +2,17 @@ import React from 'react'
 import { Button } from './ui/button'
 import { Search } from 'lucide-react'
 import { useState } from 'react'
-import { setsearchedQuery } from '@/redux/jobSlice'
+import { setSearchedQuery } from '@/redux/jobSlice'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 const HeroSection = () => {
-  const [query, setQuery] = useState("");
+  const [query,setQuery] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const searchJobHandler = () => {
-    dispatch(setsearchedQuery(query));
-    navigate("/Explore");
+    dispatch(setSearchedQuery(query));
+    navigate("/explore");
   }
   return (
     <div className='text-center'>
